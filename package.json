@@ -1,0 +1,30 @@
+{
+  "name": "radio-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodowicz/radio-task.git"
+  },
+  "author": "Anna Kotowicz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kodowicz/radio-task/issues"
+  },
+  "homepage": "https://github.com/kodowicz/radio-task#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "browser-sync": "^2.26.3",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-haml": "^1.0.1",
+    "gulp-image": "^4.4.1",
+    "gulp-sass": "^4.0.2"
+  }
+}
