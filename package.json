@@ -23,8 +23,11 @@
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
-    "gulp-haml": "^1.0.1",
     "gulp-image": "^4.4.1",
+    "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.0.2"
+  },
+  "dependencies": {
+    "pug": "^2.0.3"
   }
 }
