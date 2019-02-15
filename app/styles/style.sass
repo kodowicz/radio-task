@@ -1,8 +1,171 @@
-$body: #20202b
+$dark: #21212B
+$orange: #EDAD61
+$white: #FFFFFF
+$gray: #2A2A35
+$black: #22222B
+$light-gray: #A2ABBD
+$light-border: #4D505C
+$dark-border: #3F3F48
+
+$radius: 30px
+
+$font: 'Lato', sans-serif
+
+
+// mixin
+
+@mixin img ($fit)
+  height: 100%
+  width: 100%
+  object-fit: $fit
+  border-radius: 70px
+
+
+@mixin font ($size, $weight, $color)
+  font-size: $size
+  font-weight: $weight
+  color: $color
+
+
+@mixin button
+  padding: 0
+  background: none
+  border: none
+
+
+
 
 html
   font-size: 62.5%
 
 body
-  background: $body
+  height: 100vh
+  margin: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  background: $dark
   font-size: 16px
+  font-family: $font
+
+.widget
+  width: 380px
+  height: 600px
+  box-shadow: 0 40px 40px -20px rgba(0,0,0,.4)
+  border-radius: $radius
+
+.header
+  height: 16%
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 25px
+  background: $orange
+  border-top-left-radius: $radius
+  border-top-right-radius: $radius
+
+.header__title
+  @include font (2.4rem, 900, $white)
+  text-transform: uppercase
+
+.header__button
+  width: 3rem
+  height: 3rem
+  @include button
+
+.button-icon
+  @include img (contain)
+
+
+
+
+
+/*   main   */
+
+.stations
+  box-sizing: border-box
+  height: 68%
+  margin: 0
+  padding: 10px 25px
+  overflow-y: hidden
+  background: $gray
+  color: $light-gray
+
+.station
+  border-bottom: 1.5px solid $dark-border
+  list-style: none
+.station:last-child
+  border-bottom: none
+
+.station__header
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.station-name
+  @include font (2.3rem, 400, $light-gray)
+  margin: 0.9em 0
+
+.station-value
+  @include font (2.3rem, 700, $light-gray)
+  margin: 0
+
+.station__details
+  height: 50px
+  display: flex
+  justify-content: space-around
+  align-items: center
+
+.details__button
+  @include button
+  width: 3.5rem
+  height: 3.5rem
+
+.details__picture
+  height: 130px
+  width: 130px
+
+.details-img
+  border: 2px solid $light-gray
+
+.details-icon, .details-img
+  @include img (cover)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*   footer   */
+
+.footer
+  background: $black
+  height: 16%
+  border-top: 1.5px solid $light-border
+  border-bottom-left-radius: $radius
+  border-bottom-right-radius: $radius
+
+.footer__info
+  @include font (1.35rem, 700, $orange)
+  text-transform: uppercase
+  margin: 0
+  text-align: center
+  padding-top: 20px
+
+.footer__station
+  @include font (2.5rem, 600, $light-gray)
+  margin: 0
+  text-align: center
+
+.js-expanded
+  visibility: visible
