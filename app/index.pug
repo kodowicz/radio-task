@@ -1,30 +1,19 @@
--
-  var list = [
-    { name:"Putin", value: "66,6", isVisible: false }, 
-    { name:"Dribbble", value: "101,2", isVisible: false }, 
-    { name:"Doge", value: "99,4", isVisible: false }, 
-    { name:"Ballads", value: "87,1", isVisible: false }, 
-    { name:"Maximum", value: "142,2", isVisible: false }
-  ]
-
-
-
-mixin station-item (name, value, isVisible)
+mixin station-item (name, value)
   li.station 
-    .station__header 
+    .station__details
+      button.details__button 
+        img.details-icon(src="images/minus.png")
+        
+      .details__picture
+        img.details-img(src='images/' + name + '.jpg')
+          
+      button.details__button 
+        img.details-icon(src="images/plus.png")
+          
+    button.station__header
       h2.station-name= name + ' FM'
       p.station-value= value
-      
-    if isVisible  
-      .station__details
-        button.details__button 
-          img.details-icon(src="images/minus.png")
-            
-        .details__picture
-          img.details-img(src='images/' + name + '.jpg')
-            
-        button.details__button 
-          img.details-icon(src="images/plus.png")
+       
             
             
 doctype html
@@ -33,7 +22,7 @@ html
     meta(charset="utf-8")
     title Radio Station
     link(rel="stylesheet" href="styles/style.css")
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,900")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700")
 
   body
     .widget
@@ -44,16 +33,23 @@ html
         button.header__button.button(type="button" name="switch")
           img.button-icon(src="images/switch.png" alt=" ")
 
+      -
+        var list = [
+          { name:"Putin", value: "66,6" }, 
+          { name:"Dribbble", value: "101,2" }, 
+          { name:"Dogee", value: "99,4" }, 
+          { name:"Ballads", value: "87,1" }, 
+          { name:"Maximum", value: "142,2" }
+        ] 
+          
       .stations
         each item in list
-          +station-item(item.name, item.value, item.isVisible)
+          +station-item(item.name, item.value)
 
 
       .footer
-        each item in list
-          if item.isVisible
-            p.footer__info.js-expanded currently playing
-            p.footer__station.js-expanded= item.name + ' FM'
+        p.footer__info current station
+        p.footer__station
         
 
     script(src="js/index.js")
